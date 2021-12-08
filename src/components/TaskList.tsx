@@ -24,7 +24,7 @@ export function TaskList() {
     }
 
     if(newTask.title !== ''){
-      setTasks([...tasks, newTask])
+      setTasks(prevState => [...prevState, newTask])
     }
 
     setNewTaskTitle('')
@@ -48,7 +48,7 @@ export function TaskList() {
   function handleRemoveTask(id: number) {
     // Remova uma task da listagem pelo ID
     const remover = tasks.filter(task => task.id !== id)
-    setTasks([...remover])
+    setTasks(remover)
   }
 
   return (
